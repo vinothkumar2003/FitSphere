@@ -1,0 +1,74 @@
+user
+post `http://localhost:8080/api/auth/signup`
+post `http://localhost:8080/api/auth/login`
+get `http://localhost:8080/api/auth/users`
+get `http://localhost:8080/api/auth/users/{id}`
+put `http://localhost:8080/api/auth/users/{id}`
+delete `http://localhost:8080/api/auth/users/{id}`
+post `http://localhost:8080/api/auth/signup-otp`
+post `http://localhost:8080/api/auth/verify-otp`
+post `http://localhost:8080/api/auth/resend-otp?email={email}`
+
+health
+get `http://localhost:8080/api/health`
+
+fitness plan
+get `http://localhost:8080/api/plans`
+get `http://localhost:8080/api/plans/{id}`
+get `http://localhost:8080/api/plans?difficulty={difficulty}`
+get `http://localhost:8080/api/plans?focusArea={focusArea}`
+get `http://localhost:8080/api/plans/trainer/{trainerId}`
+post `http://localhost:8080/api/plans`
+put `http://localhost:8080/api/plans/{id}`
+delete `http://localhost:8080/api/plans/{id}`
+
+booking
+get `http://localhost:8080/api/bookings`
+get `http://localhost:8080/api/bookings/{id}`
+post `http://localhost:8080/api/bookings?planId={planId}&trainerId={trainerId}`
+put `http://localhost:8080/api/bookings/{id}`
+put `http://localhost:8080/api/bookings/{id}/approve`
+put `http://localhost:8080/api/bookings/{id}/reject`
+delete `http://localhost:8080/api/bookings/{id}`
+get `http://localhost:8080/api/bookings/user/{userId}`
+get `http://localhost:8080/api/bookings/trainer/{trainerId}`
+
+plan booked
+get `http://localhost:8080/api/plan-booked/{id}`
+get `http://localhost:8080/api/plan-booked?planId={planId}`
+
+diet
+get `http://localhost:8080/api/diet`
+get `http://localhost:8080/api/diet/{id}`
+post `http://localhost:8080/api/diet?trainerId={trainerId}&userId={userId}`
+put `http://localhost:8080/api/diet/{id}`
+delete `http://localhost:8080/api/diet/{id}`
+get `http://localhost:8080/api/diet/user/{userId}`
+get `http://localhost:8080/api/diet/trainer/{trainerId}`
+get `http://localhost:8080/api/diet/plan/{planId}`
+
+workdone
+post `http://localhost:8080/api/workdone`
+get `http://localhost:8080/api/workdone/{id}`
+get `http://localhost:8080/api/workdone?planBookedId={planBookedId}`
+
+admin finance
+get `http://localhost:8080/api/admin/finance/bookings`
+get `http://localhost:8080/api/admin/finance/bookings/{bookingId}`
+put `http://localhost:8080/api/admin/finance/bookings/{bookingId}/amount`
+post `http://localhost:8080/api/admin/finance/bookings/{bookingId}/renewal-email`
+
+erp
+get `http://localhost:8080/api/admin/erp/dashboard`
+get `http://localhost:8080/api/admin/erp/inventory/low-stock`
+get `http://localhost:8080/api/admin/erp/suppliers`
+get `http://localhost:8080/api/admin/erp/suppliers/{supplierId}`
+post `http://localhost:8080/api/admin/erp/suppliers`
+put `http://localhost:8080/api/admin/erp/suppliers/{supplierId}`
+delete `http://localhost:8080/api/admin/erp/suppliers/{supplierId}`
+get `http://localhost:8080/api/admin/erp/purchase-orders`
+get `http://localhost:8080/api/admin/erp/purchase-orders/{purchaseOrderId}`
+post `http://localhost:8080/api/admin/erp/purchase-orders`
+put `http://localhost:8080/api/admin/erp/purchase-orders/{purchaseOrderId}`
+post `http://localhost:8080/api/admin/erp/purchase-orders/{purchaseOrderId}/receive`
+delete `http://localhost:8080/api/admin/erp/purchase-orders/{purchaseOrderId}`

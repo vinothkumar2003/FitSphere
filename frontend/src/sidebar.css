@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+:root {
+  --base-clr: #fff;
+  --line-clr: #e0e0e0;
+  --hover-clr: #f5f5f5;
+  --text-clr: #222533;
+  --accent-clr: #5e63ff;
+  --secondary-text-clr: #6b6b6b;
+}
+body {
+  background-color: var(--base-clr);
+  color: var(--text-clr);
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+#sidebar {
+  box-sizing: border-box;
+  height: 100vh;
+  width: 250px;
+  padding: 5px 1em;
+  background-color: var(--base-clr);
+  border-right: 1px solid var(--line-clr);
+  position: sticky;
+  top: 0;
+  align-self: start;
+  transition: 300ms ease-in-out;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+#sidebar.close {
+  padding: 5px;
+  width: 60px;
+}
+#sidebar.close a span {
+  display: none;
+}
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+#sidebar ul li {
+  margin-bottom: 12px;
+}
+#sidebar ul li:last-child {
+  margin-bottom: 0;
+}
+#sidebar.close ul li:first-child  .logo {
+  display: none;
+}
+
+#sidebar > ul > li:first-child {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.logo {
+  font-weight: 600;
+}
+#sidebar ul li.active a {
+  color: var(--accent-clr);
+  background: var(--hover-clr);
+  font-weight: 600;
+  box-shadow: 0 2px 8px 0 rgba(94,99,255,0.06);
+  border-radius: .5em;
+}
+#sidebar ul li.active a svg {
+  fill: var(--accent-clr);
+}
+#sidebar a, #sidebar .logo {
+  border-radius: .5em;
+  padding: .85em;
+  text-decoration: none;
+  color: var(--text-clr);
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  background: none;
+}
+#sidebar svg {
+  flex-shrink: 0;
+  fill: var(--text-clr);
+}
+#sidebar a span {
+  flex-grow: 1;
+}
+#sidebar a:hover {
+  background-color: var(--hover-clr);
+}
+#toggle-btn {
+  margin-left: auto;
+  padding: 1em;
+  border: none;
+  border-radius: .5em;
+  background: none;
+  cursor: pointer;
+}
+#toggle-btn:hover {
+  background-color: var(--hover-clr);
+}
+
+/* Profile section styles */
+.profile-section {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff;
+  border-top: 1px solid var(--line-clr);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+}
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f4ff;
+}
+.profile-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.profile-name {
+  font-weight: 600;
+  color: #222533;
+}
+.profile-dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.profile-dropdown {
+  position: absolute;
+  bottom: 56px;
+  left: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 160px;
+  z-index: 10;
+}
+.profile-dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-dropdown li:hover {
+  background: #f0f4ff;
+}
+.profile-section.closed {
+  justify-content: center;
+  padding: 12px 0;
+}
+.profile-section.closed .profile-avatar {
+  margin-right: 0;
+}
+.profile-section.closed .profile-info,
+.profile-section.closed .profile-name,
+.profile-section.closed .profile-dropdown-btn {
+  display: none;
+}
+.profile-dropdown.closed {
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  bottom: 56px;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media(max-width: 800px) {
+  #sidebar ,#sidebar.close {
+    height: 60px;
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid var(--line-clr);
+    padding: 0;
+    position: fixed;
+    top: unset;
+    bottom: 0;
+  }
+ 
+  #sidebar > ul {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    overflow-x: scroll;
+    justify-content: space-evenly;
+  }
+  #sidebar ul li {
+    height: 100%;
+    margin-bottom: 0;
+  }
+  #sidebar ul a {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 0;
+    justify-content: center;
+  }
+  #sidebar ul li span, #sidebar ul li:first-child {
+    display: none;
+  }
+  .profile-section{
+    display: none;
+  }
+
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .app-main {
+    padding-bottom: 72px; /* leave room for bottom nav */
+  }
+}

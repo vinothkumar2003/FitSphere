@@ -1,0 +1,32 @@
+﻿# Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+.classpath
+.project
+.settings/
+bin/
+out/
+
+# Node/Frontend
+node_modules/
+dist/
+build/
+npm-debug.log
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Misc
+*.log
+.env
